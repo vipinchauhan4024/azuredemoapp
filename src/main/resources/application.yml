@@ -1,0 +1,36 @@
+# Logging
+logging:
+  level:
+    root: INFO
+    com.hackathon.demoapp: DEBUG
+    org.springframework.boot.actuate.jdbc.DataSourceHealthIndicator: ERROR
+    logging.file: application.log
+
+# Application
+server:
+  port: 8080
+  compression:
+    enabled: true
+    mime-types: application/json,application/xml,text/html,text/xml,text/plain,application/javascript,text/css
+   
+spring:
+  application:
+    name: azure-demo-app
+  security:
+    user:
+      name: admin
+      password: volvo
+
+
+demoapp:
+  datasource:
+       azureds:
+        jdbc-url: jdbc:postgresql://localhost:5432/azuredemo
+        username: demoappadmin
+        password: Doon@123
+
+        minimum-idle: 2
+        maximum-pool-size: 5
+        connection-timeout: 180000 # 180 sec
+        idle-timeout: 240000 # 2 min
+        max-lifetime: 900000 # 15 min
