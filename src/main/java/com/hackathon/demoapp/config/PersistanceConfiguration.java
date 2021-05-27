@@ -3,7 +3,6 @@ package com.hackathon.demoapp.config;
 import javax.sql.DataSource;
 
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,12 +27,11 @@ public class PersistanceConfiguration {
         dataSourceBuilder.url("jdbc:postgresql://demoapp-hackathon.postgres.database.azure.com:5432/azuredemo");
         dataSourceBuilder.username("demoappadmin@demoapp-hackathon.postgres.database.azure.com");
         dataSourceBuilder.password("Doon@123");
-        
-      /*  dataSourceBuilder.url("jdbc:postgresql://localhost:5432/azuredemo");
+       /* 
+        dataSourceBuilder.url("jdbc:postgresql://localhost:5432/azuredemo?currentschema=demoappadmin");
         dataSourceBuilder.username("postgres");
         dataSourceBuilder.password("admin");*/
-        DataSource d = dataSourceBuilder.build();
-        return d;
+       return  dataSourceBuilder.build();
     }
     
     @Primary              

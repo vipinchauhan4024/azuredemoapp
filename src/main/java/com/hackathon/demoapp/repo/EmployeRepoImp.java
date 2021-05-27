@@ -22,10 +22,13 @@ public class EmployeRepoImp implements EmployeRepo {
     @Autowired
     @Qualifier("postgreNamedJdbc")
     private NamedParameterJdbcTemplate jdbcNameTemplate;
+    
+    private static final String SCHEMA= "\"demoappadmin@demoapp-hackathon.postgres.database.azure.com\"";
+    private static final String SCHEMA1= "demoappadmin@demoapp-hackathon.postgres.database.azure.com";
 
     @Override
     public List<Employee> getAllEmployee() {
-        return jdbcNameTemplate.query("select  empid, empname, dep from Employee",
+        return jdbcNameTemplate.query("select  empid, empname, dep from" +SCHEMA+".Employee",
                                       (rs, n) -> new Employee(rs.getInt("empid"), rs.getString("empname"), rs.getString("dep")));
 
     }
@@ -33,7 +36,8 @@ public class EmployeRepoImp implements EmployeRepo {
     @Override
     public void saveAll(List<Employee> list) {
 
-        this.jdbcTemplate.batchUpdate("INSERT INTO Employee (empid, empname, dep) VALUES (?, ?, ?)", new BatchPreparedStatementSetter() {
+        String query = "INSERT INTO "+SCHEMA1+".Employee (empid, empname, dep) VALUES (?, ?, ?)";
+        this.jdbcTemplate.batchUpdate(query, new BatchPreparedStatementSetter() {
 
             public void setValues(PreparedStatement ps, int i) throws SQLException {
                 ps.setInt(1, list.get(i).getEmpId());
