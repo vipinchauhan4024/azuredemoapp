@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/")
 public class GreetingController {
 
-    @GetMapping(value = "/greeting")  
+    @GetMapping(path = "greeting")
     public String getGreeting()   
     {  
-     return "Hello Azure demo app Service is running Ok " ;
+     return "Hello Azure demo app Service is running Ok!! " ;
     }  
 }
 
