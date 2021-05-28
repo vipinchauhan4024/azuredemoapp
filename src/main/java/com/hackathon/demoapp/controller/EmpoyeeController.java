@@ -1,6 +1,7 @@
 package com.hackathon.demoapp.controller;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -11,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.hackathon.demoapp.model.Employee;
+import com.hackathon.demoapp.model.EmployeeShallowDto;
 import com.hackathon.demoapp.repo.EmployeRepo;
 
 import io.swagger.annotations.ApiOperation;
@@ -24,9 +26,11 @@ public class EmpoyeeController {
     
     @ApiOperation(value = "allemp")
     @GetMapping(path = "allemp")
-    public List<Employee> getAllEmployee()   
+    public List<EmployeeShallowDto> getAllEmployee()   
     {  
-       return repo.getAllEmployee();
+       return repo.getAllEmployee().stream().
+               map(e -> new EmployeeShallowDto(e.getEmpId(),e.getFirstName(),e.getLastName()))
+               .collect(Collectors.toList());
     } 
     
     @ApiOperation(value = "Save employees", notes = "save employee in DB")

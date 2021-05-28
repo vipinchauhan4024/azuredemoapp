@@ -21,14 +21,11 @@ public class PersistanceConfiguration {
         
         DataSourceBuilder dataSourceBuilder = DataSourceBuilder.create();
         
-       // dataSourceBuilder.username("demoappadmin");
-       // dataSourceBuilder.password("Doon@123");
-        
         dataSourceBuilder.url("jdbc:postgresql://demoapp-hackathon.postgres.database.azure.com:5432/azuredemo");
         dataSourceBuilder.username("demoappadmin@demoapp-hackathon.postgres.database.azure.com");
         dataSourceBuilder.password("Doon@123");
-       /* 
-        dataSourceBuilder.url("jdbc:postgresql://localhost:5432/azuredemo?currentschema=demoappadmin");
+        
+       /* dataSourceBuilder.url("jdbc:postgresql://localhost:5432/azuredemo?currentschema=demoappadmin");
         dataSourceBuilder.username("postgres");
         dataSourceBuilder.password("admin");*/
        return  dataSourceBuilder.build();
