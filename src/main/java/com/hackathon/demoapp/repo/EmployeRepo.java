@@ -10,4 +10,6 @@ public interface EmployeRepo {
 
     void saveAll(List<Employee> empList);
 
+    int getAllEmployeeCount();
+
 }

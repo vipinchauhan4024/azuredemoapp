@@ -32,7 +32,12 @@ public class EmpoyeeController {
                map(e -> new EmployeeShallowDto(e.getEmpId(),e.getFirstName(),e.getLastName()))
                .collect(Collectors.toList());
     } 
-    
+    @ApiOperation(value = "allempcount")
+    @GetMapping(path = "allempcount")
+    public Integer getAllEmployeeCount()   
+    {  
+       return repo.getAllEmployeeCount();
+    } 
     @ApiOperation(value = "Save employees", notes = "save employee in DB")
     @PostMapping(path = "/add", produces = MediaType.APPLICATION_JSON_VALUE)
     public void addEmployee(@RequestBody List<Employee> empList) {

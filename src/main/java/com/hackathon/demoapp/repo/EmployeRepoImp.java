@@ -35,6 +35,14 @@ public class EmployeRepoImp implements EmployeRepo {
                                       (rs, n) -> new Employee(rs.getInt(1), rs.getString(2), rs.getString(3)));
 
     }
+    
+    @Override
+    public int getAllEmployeeCount() {
+        List<Employee> list = jdbcNameTemplate.query("select  \"empId\" from " +AZURE_SCHEMA+".Employee",
+                                      (rs, n) -> new Employee(rs.getInt(1)));
+        return list.size();
+
+    }
 
     @Override
     public void saveAll(List<Employee> list) {

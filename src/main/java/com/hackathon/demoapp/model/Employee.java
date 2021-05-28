@@ -30,6 +30,11 @@ public class Employee {
     
     
     public Employee(){}
+    public Employee(int empId) {
+        super();
+        this.empId = empId;
+       
+    }
     public Employee(int empId, String firstName, String lastName) {
         super();
         this.empId = empId;
