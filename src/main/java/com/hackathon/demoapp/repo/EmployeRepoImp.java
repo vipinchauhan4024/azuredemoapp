@@ -2,6 +2,7 @@ package com.hackathon.demoapp.repo;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.Timestamp;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,14 +35,16 @@ public class EmployeRepoImp implements EmployeRepo {
 
     @Override
     public void saveAll(List<Employee> list) {
-
-        String query = "INSERT INTO "+AZURE_SCHEMA+".Employee (empid, empname, dep) VALUES (?, ?, ?)";
+        Timestamp currentTime = new Timestamp(System.currentTimeMillis());
+        String query = "INSERT INTO "+AZURE_SCHEMA+".Employee (empid, empname, dep, addedtime, modifiedtime) VALUES (?, ?, ?,?,?)";
         this.jdbcTemplate.batchUpdate(query, new BatchPreparedStatementSetter() {
 
             public void setValues(PreparedStatement ps, int i) throws SQLException {
                 ps.setInt(1, list.get(i).getEmpId());
                 ps.setString(2, list.get(i).getEmpname());
                 ps.setString(3, list.get(i).getDept());
+                ps.setTimestamp(4, currentTime);
+                ps.setTimestamp(5, currentTime);
 
             }
 
