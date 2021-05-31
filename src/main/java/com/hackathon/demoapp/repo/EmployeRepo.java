@@ -12,4 +12,6 @@ public interface EmployeRepo {
 
     int getAllEmployeeCount();
 
+    void deleteAllEmployee();
+
 }

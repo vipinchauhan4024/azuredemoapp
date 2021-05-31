@@ -43,4 +43,12 @@ public class EmpoyeeController {
     public void addEmployee(@RequestBody List<Employee> empList) {
         repo.saveAll(empList);
     }
+    
+    @ApiOperation(value = "deleteall")
+    @GetMapping(path = "deleteAll")
+    public String deleteAllEmployee()   
+    {  
+        repo.deleteAllEmployee();
+        return "Deleted";
+    } 
 }

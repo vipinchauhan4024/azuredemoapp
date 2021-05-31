@@ -43,7 +43,14 @@ public class EmployeRepoImp implements EmployeRepo {
         return list.size();
 
     }
-
+    
+    @Override
+    public void deleteAllEmployee() {
+        String query = "delete from  "+AZURE_SCHEMA+".employee";
+       
+       
+        this.jdbcTemplate.execute(query);
+    }
     @Override
     public void saveAll(List<Employee> list) {
         String query = "INSERT INTO "+AZURE_SCHEMA+".employee(\"empId\", city, country, dob, doj, email, firstname, gender, lasthike, lastname, phoneno, region, "
