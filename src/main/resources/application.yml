@@ -16,10 +16,10 @@ server:
 spring:
   application:
     name: azure-demo-app
-  security:
-    user:
-      name: admin
-      password: volvo
+#  security:
+#    user:
+#      name: admin
+#      password: volvo
 
 
 demoapp:
