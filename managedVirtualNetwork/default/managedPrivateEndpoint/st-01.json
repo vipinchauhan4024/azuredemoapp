@@ -1,0 +1,10 @@
+{
+	"name": "st-01",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/04abf2eb-58f5-4264-8858-3793629a7259/resourceGroups/udp-109460-0B-hipi-dev-euw-rg/providers/Microsoft.Storage/storageAccounts/hipideveuwst01",
+		"groupId": "dfs",
+		"fqdns": [
+			"hipideveuwst01.dfs.core.windows.net"
+		]
+	}
+}

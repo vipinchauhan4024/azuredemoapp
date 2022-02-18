@@ -1,0 +1,10 @@
+{
+	"name": "sqlsrv-01",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/04abf2eb-58f5-4264-8858-3793629a7259/resourceGroups/udp-109460-0B-hipi-dev-euw-rg/providers/Microsoft.Sql/servers/hipi-dev-euw-sqlsrv-01",
+		"groupId": "sqlServer",
+		"fqdns": [
+			"hipi-dev-euw-sqlsrv-01.database.windows.net"
+		]
+	}
+}

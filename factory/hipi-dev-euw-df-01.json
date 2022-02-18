@@ -1,0 +1,9 @@
+{
+	"name": "hipi-dev-euw-df-01",
+	"location": "westeurope",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "f8d1a15e-3734-4ba7-9395-b924d0e84641",
+		"tenantId": "f25493ae-1c98-41d7-8a33-0be75f5fe603"
+	}
+}

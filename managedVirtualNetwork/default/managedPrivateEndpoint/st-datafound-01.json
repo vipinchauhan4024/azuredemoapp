@@ -1,0 +1,10 @@
+{
+	"name": "st-datafound-01",
+	"properties": {
+		"privateLinkResourceId": "/subscriptions/269cb5ca-505e-4cfa-a72d-69d82f386a8c/resourceGroups/udp-109460-02-datafound-dev-euw-rg/providers/Microsoft.Storage/storageAccounts/datafounddeveuwdlsenr",
+		"groupId": "dfs",
+		"fqdns": [
+			"datafounddeveuwdlsenr.dfs.core.windows.net"
+		]
+	}
+}
